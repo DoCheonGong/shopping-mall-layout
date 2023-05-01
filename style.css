@@ -15,7 +15,7 @@ a {
 }
 
 header {
-    width: 1000px;
+    width: 1200px;
     height: 150px;
     margin: 0 auto;
     position: relative;
@@ -24,14 +24,13 @@ header > h1 {
     font: bold 30px/1 "Arial";
     position: absolute;
     top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     color: #333;
 }
 #gnb {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: 40px;
+    right: 0;
 }
 #gnb > li {
     float: left;
@@ -64,11 +63,11 @@ header > h1 {
     width: 200px;
     height: 50px;
     font: 12px/50px "Arial";
-    background-color: #555;
-    color: #888;
+    background-color: #aaa;
+    color: #000;
     text-align: center;
 }
 .sub > li > a:hover {
     background-color: #333;
-    color: orange
+    color: #fff;
 }
