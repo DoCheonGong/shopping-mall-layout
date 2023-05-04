@@ -94,7 +94,12 @@ header .inner h1 {
     background-color: #333;
     color: #fff;
 }
-#gnb > li .sub li > a {
+#gnb > li > a.on {
+    background-color: #666;
+    color: #fff;
+}
+
+.sub > li > a {
     display: block;
     width: 150px; /* #gnb와 같은 width를 가지도록 한다 */
     height: 30px;
@@ -103,35 +108,23 @@ header .inner h1 {
     background-color: #fff;
     text-align: center;
 }
-#gnb > li .sub li > a:hover {
-    background-color: #666;
-    color: #fff;
-}
-#gnb > li > a.on {
+.sub > li > a:hover {
     background-color: #666;
     color: #fff;
 }
 
 /* slider */
 #slide {
-    position: relative;
-    width: 100%;
-}
-#slide .frame {
     width: 1200px;
     height: 300px;
     margin: 0 auto;
     overflow: hidden;
 }
-#slide .frame li {
-    display: none;
-    bottom: 0;
-    left: 0;
-}
-#slide .frame li.on {
-    display: block;
-}
 
+#slide .frame {
+    height: 900px;
+    position: relative;
+}
 /* content box */
 #contentBox {
     width: 100%
@@ -144,33 +137,30 @@ header .inner h1 {
     justify-content: space-between;
     align-items: center;
 }
-/*
-#contentBox .inner .quickLink span {
-    font: bold 14px "돋움";
-    padding-left: 7px;
-    padding-right: 20px;
-}
-*/
+
 .board {
-    flex: 2;
+    flex: 1.5;
     height: 200px;
+    overflow: hidden;
 }
 .board .tab {
-    flex: 1;
     display: flex;
     width: 100%;
-    margin-top: 5px;
-    border-bottom: 1px solid #333;
+    height: 50px;
 }
 .board .tab li {
-    width: 20%;
-    margin-left: 5px;
+    width: 100px;
     background-color: #333;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
-.board .tab li:last-of-type {
-    margin-left: 0;
+.board .tab li a {
+    font: bold 15px/1 "Arial";
+    color: #fff;
 }
+/*
 .board .tab li a {
     display: block;
     padding: 10px;
@@ -178,48 +168,70 @@ header .inner h1 {
     color: #f8f8f8;
     font-weight: bold;
     border: 1px solid #333;
-    border-bottom: none;
 }
 .board .tab li:nth-of-type(1) a {
     border-right: none;
 }
+*/
 .board .tab li.on {
     background-color: #fff;
-    border-bottom: 1px solid #fff;
-    margin-bottom: -4px;
-    /* jQuery 이후 설명 */
 }
 .board .tab li.on a {
     color: #333;
 }
-.board .tab .content {
+
+.content {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    /* calc로 정확한 높이 지정 */
+}
+.content div {
     width: 100%;
     height: 100%;
-    /* calc로 정확한 높이 지정 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    opacity: 0;
+    z-index: 1;
+}
+.content div.on {
+    opacity: 1;
+    z-index: 2;
 }
 
 #notice {
-    width: 100%;
-    height: 100%;
+    justify-content: flex-start;
 }
-#notice > ul {
-    margin: 0 auto;
+#notice ul {
     width: 100%;
-    padding: 8px;
 }
-#notice > ul > li {
+#notice ul li {
     display: flex;
-    padding: 5px 0;
-    font-size: 13px;
     justify-content: space-between;
+    height: 30px;
 }
-#notice > ul > li:nth-of-type(odd) {
+#notice ul li:nth-of-type(odd) {
     background-color: rgba(0, 0, 0, 0.2);
 }
-#notice > ul > li > a {
+#notice ul li:hover { 
+    background-color: #eee;
+}
+#notice ul li a {
+    font: 13px/30px "맑은 고딕";
+    color: #333;
+    margin-left: 30px;
     cursor: pointer;
 }
-
+#notice ul li span {
+    font: 10px/30px "Arial";
+    color: #333;
+    margin-right: 30px;
+}
+/*
 #gallery {
     height: 100%;
     margin: 10px;
@@ -227,7 +239,7 @@ header .inner h1 {
     justify-content: space-evenly;
     align-items: center;
 }
-
+*/
 /* banner */
 .banner {
     flex: 1;
@@ -250,12 +262,17 @@ header .inner h1 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding: 5px
 }
-.quickLink div {
+.quickLink a {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
-.quickLink div span {
+.quickLink a span {
     font-size: 12px;
+    text-align: center;
 }
 
 /* footer */
@@ -264,27 +281,26 @@ footer {
 }
 footer .inner {
     width: 1200px;
-    height: 100px;
     margin: 0 auto;
-    position: relative;
+    display: flex;
     justify-content: space-between;
-    align-items: center;
 }
-footer .inner .logo {
-    position: absolute;
-    top: 50%;
-    left: 50px;
-    transform: translateY(-50%);
+footer .inner a .logo {
+    display: flex;
+    justify-content: center;
+    flex: 1.5; 
 }
 footer .inner .copyright {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    flex: 3;
+    text-align: center;
+}
+footer .inner .copyright span {
+    font: bold 12px/1 "Arial";
+    color: #333;
 }
 footer .inner .sns {
-    position: absolute;
-    top: 50%;
-    right: 50px;
-    transform: translateY(-50%);
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
