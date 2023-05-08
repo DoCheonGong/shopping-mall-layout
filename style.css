@@ -99,6 +99,10 @@ header .inner h1 {
     color: #fff;
 }
 
+.sub {
+    display: none;
+}
+
 .sub > li > a {
     display: block;
     width: 150px; /* #gnb와 같은 width를 가지도록 한다 */
@@ -231,15 +235,13 @@ header .inner h1 {
     color: #333;
     margin-right: 30px;
 }
-/*
-#gallery {
-    height: 100%;
-    margin: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+#gallery a {
+    opacity: 0.4;
+    transition: 1s;
 }
-*/
+#gallery a:hover {
+    opacity: 1;
+}
 /* banner */
 .banner {
     flex: 1;
